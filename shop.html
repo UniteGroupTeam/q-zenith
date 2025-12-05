@@ -9,100 +9,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        :root {
-            --carbon-black: #0a0a0a;
-            --ferrari-red: #d40000;
-            --pure-white: #ffffff;
-        }
-
-        body {
-            background-color: var(--carbon-black);
-            font-family: 'Manrope', sans-serif;
-            color: var(--pure-white);
-            overflow-x: hidden;
-        }
-
+        :root { --carbon-black: #0a0a0a; --ferrari-red: #d40000; --pure-white: #ffffff; }
+        body { background-color: var(--carbon-black); font-family: 'Manrope', sans-serif; color: var(--pure-white); overflow-x: hidden; }
         .brand-font { font-family: 'Syncopate', sans-serif; }
 
-        /* Grid Background Technical Look */
-        .tech-grid-bg {
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
+        /* GRID BG */
+        .tech-grid-bg { background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 50px 50px; }
 
-        /* Filter Sidebar Styling */
-        .filter-option {
-            display: block;
-            padding: 10px 0;
-            color: #666;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .filter-option:hover, .filter-option.active {
-            color: white;
-            padding-left: 10px;
-        }
-        .filter-option:hover::before, .filter-option.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 4px;
-            background-color: var(--ferrari-red);
-        }
+        /* FILTERS */
+        .filter-option { display: block; padding: 10px 0; color: #666; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease; position: relative; }
+        .filter-option:hover, .filter-option.active { color: white; padding-left: 10px; }
+        .filter-option:hover::before, .filter-option.active::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 4px; background-color: var(--ferrari-red); }
 
-        /* Product Grid Card */
-        .catalog-card {
-            background: #0f0f0f;
-            border: 1px solid #1c1c1c;
-            transition: all 0.3s ease;
-        }
-        .catalog-card:hover {
-            border-color: #333;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .catalog-img-wrap {
-            height: 350px;
-            overflow: hidden;
-            position: relative;
-        }
-        .catalog-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            filter: grayscale(100%) contrast(1.1);
-        }
-        .catalog-card:hover .catalog-img-wrap img {
-            transform: scale(1.05);
-            filter: grayscale(0%) contrast(1);
-        }
+        /* PRODUCT CARDS */
+        .catalog-card { background: #0f0f0f; border: 1px solid #1c1c1c; transition: all 0.3s ease; display: block; }
+        .catalog-card:hover { border-color: #333; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .catalog-img-wrap { height: 350px; overflow: hidden; position: relative; }
+        .catalog-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; filter: grayscale(100%) contrast(1.1); }
+        .catalog-card:hover .catalog-img-wrap img { transform: scale(1.05); filter: grayscale(0%) contrast(1); }
+        .add-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); transform: translateY(100%); transition: transform 0.3s ease; display: flex; justify-content: space-between; align-items: center; }
+        .catalog-card:hover .add-overlay { transform: translateY(0); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
 
-        /* Add to Cart Overlay */
-        .add-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 15px;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .catalog-card:hover .add-overlay {
-            transform: translateY(0);
-        }
+        /* CART DRAWER */
+        #cart-sidebar { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-left: 1px solid #333; z-index: 100; transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); display: flex; flex-direction: column; }
+        #cart-sidebar.open { right: 0; }
+        .cart-item { border-bottom: 1px solid #1c1c1c; padding: 15px 0; display: flex; gap: 15px; }
+        .cart-item img { width: 60px; height: 60px; object-fit: cover; border: 1px solid #333; }
     </style>
 </head>
 <body class="tech-grid-bg min-h-screen flex flex-col">
@@ -113,22 +46,19 @@
             <i class="fa-solid fa-arrow-left text-gray-500 group-hover:text-white transition-colors"></i>
             <span class="text-xs font-mono text-gray-500 group-hover:text-white">RETURN TO BASE</span>
         </a>
-        <a href="index.html">
-            <img src="https://imgur.com/yyT9Gt7.png" alt="Q-ZENITH" class="h-8">
-        </a>
-        <div class="relative cursor-pointer">
-            <i class="fa-solid fa-bag-shopping text-white text-lg"></i>
-            <span class="absolute -top-2 -right-2 bg-red-700 text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
+        <a href="index.html"><img src="https://imgur.com/yyT9Gt7.png" alt="Q-ZENITH" class="h-8"></a>
+        <div class="relative cursor-pointer group" onclick="toggleCart()">
+            <i class="fa-solid fa-bag-shopping text-white text-lg group-hover:text-red-600 transition-colors"></i>
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-700 text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full opacity-0 transition-opacity">0</span>
         </div>
     </nav>
 
     <!-- MAIN LAYOUT -->
     <div class="flex flex-col md:flex-row flex-grow">
         
-        <!-- SIDEBAR FILTERS (Desktop: Side, Mobile: Top) -->
+        <!-- SIDEBAR FILTERS -->
         <aside class="w-full md:w-64 p-8 border-r border-[#1c1c1c] bg-black/50">
             <h2 class="text-xs font-mono text-gray-500 mb-8 tracking-widest border-b border-gray-800 pb-2">TELEMETRY FILTERS</h2>
-            
             <div class="mb-8">
                 <h3 class="text-white text-sm font-bold mb-4 uppercase">Chassis Type</h3>
                 <span class="filter-option active">ALL SYSTEMS</span>
@@ -137,7 +67,6 @@
                 <span class="filter-option">BASE-LAYER (T-Shirts)</span>
                 <span class="filter-option">ACCESSORIES</span>
             </div>
-
             <div class="mb-8">
                 <h3 class="text-white text-sm font-bold mb-4 uppercase">Material Spec</h3>
                 <span class="filter-option">GORE-TEX PRO</span>
@@ -155,96 +84,141 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
-                <!-- Item 1 -->
-                <div class="catalog-card group">
+                <!-- Item 1 (Links to Template) -->
+                <a href="product-template.html" class="catalog-card group">
                     <div class="catalog-img-wrap">
                         <img src="https://images.unsplash.com/photo-1551488852-080175d2753a?q=80&w=1000&auto=format&fit=crop" alt="Item">
                         <div class="add-overlay">
                             <span class="text-sm font-mono">$850.00</span>
-                            <button class="bg-white text-black text-xs font-bold px-3 py-1 hover:bg-red-600 hover:text-white transition-colors">ADD</button>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="text-white text-sm font-bold truncate">CARBON SHELL PARKA</h4>
-                                <p class="text-xs text-gray-500 font-mono mt-1">APEX-01 SERIES</p>
-                            </div>
+                            <div><h4 class="text-white text-sm font-bold truncate">CARBON SHELL PARKA</h4><p class="text-xs text-gray-500 font-mono mt-1">APEX-01 SERIES</p></div>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- Item 2 -->
-                <div class="catalog-card group">
+                <a href="product-template.html" class="catalog-card group">
                     <div class="catalog-img-wrap">
                         <img src="https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?q=80&w=1000&auto=format&fit=crop" alt="Item">
                         <div class="add-overlay">
                             <span class="text-sm font-mono">$320.00</span>
-                            <button class="bg-white text-black text-xs font-bold px-3 py-1 hover:bg-red-600 hover:text-white transition-colors">ADD</button>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="text-white text-sm font-bold truncate">MONO-POSTO HOODIE</h4>
-                                <p class="text-xs text-gray-500 font-mono mt-1">VELOCITY SERIES</p>
-                            </div>
+                            <div><h4 class="text-white text-sm font-bold truncate">MONO-POSTO HOODIE</h4><p class="text-xs text-gray-500 font-mono mt-1">VELOCITY SERIES</p></div>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- Item 3 -->
-                <div class="catalog-card group">
+                <a href="product-template.html" class="catalog-card group">
                     <div class="catalog-img-wrap">
                         <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1000&auto=format&fit=crop" alt="Item">
                         <div class="add-overlay">
                             <span class="text-sm font-mono">$180.00</span>
-                            <button class="bg-white text-black text-xs font-bold px-3 py-1 hover:bg-red-600 hover:text-white transition-colors">ADD</button>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="text-white text-sm font-bold truncate">TECH-JERSEY BLACK</h4>
-                                <p class="text-xs text-gray-500 font-mono mt-1">DRIFT SERIES</p>
-                            </div>
+                            <div><h4 class="text-white text-sm font-bold truncate">TECH-JERSEY BLACK</h4><p class="text-xs text-gray-500 font-mono mt-1">DRIFT SERIES</p></div>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- Item 4 -->
-                <div class="catalog-card group">
+                <a href="product-template.html" class="catalog-card group">
                     <div class="catalog-img-wrap">
                         <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1000&auto=format&fit=crop" alt="Item">
                         <div class="add-overlay">
                             <span class="text-sm font-mono">$120.00</span>
-                            <button class="bg-white text-black text-xs font-bold px-3 py-1 hover:bg-red-600 hover:text-white transition-colors">ADD</button>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="text-white text-sm font-bold truncate">AERO CAP V2</h4>
-                                <p class="text-xs text-gray-500 font-mono mt-1">ACCESSORIES</p>
-                            </div>
+                            <div><h4 class="text-white text-sm font-bold truncate">AERO CAP V2</h4><p class="text-xs text-gray-500 font-mono mt-1">ACCESSORIES</p></div>
                         </div>
                     </div>
-                </div>
+                </a>
 
             </div>
         </main>
     </div>
 
+    <!-- CART SIDEBAR (HIDDEN PAYLOAD) -->
+    <div id="cart-sidebar" class="p-6">
+        <div class="flex justify-between items-center mb-8 pb-4 border-b border-[#333]">
+            <h2 class="text-xl brand-font text-white">CURRENT PAYLOAD</h2>
+            <button onclick="toggleCart()" class="text-gray-500 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        <div id="cart-items" class="flex-grow overflow-y-auto hide-scrollbar"><div class="text-center text-gray-600 mt-10 font-mono text-xs">SYSTEM EMPTY</div></div>
+        <div class="border-t border-[#333] pt-6 mt-4">
+            <div class="flex justify-between text-white font-mono mb-4"><span>TOTAL ESTIMATED</span><span id="cart-total">$ 0.00</span></div>
+            <button class="w-full bg-red-700 text-white font-bold py-4 hover:bg-red-800 transition-colors brand-font tracking-widest text-sm">INITIATE CHECKOUT</button>
+        </div>
+    </div>
+
     <script>
-        // Simple Interaction for Filters
+        // Filters Logic
         const filters = document.querySelectorAll('.filter-option');
         filters.forEach(filter => {
             filter.addEventListener('click', function() {
-                // Remove active class from siblings in same container
                 this.parentElement.querySelectorAll('.filter-option').forEach(el => el.classList.remove('active'));
                 this.classList.add('active');
             });
         });
+
+        // --- CART SYSTEM (SHARED LOGIC) ---
+        let cart = JSON.parse(localStorage.getItem('qzenith_cart')) || [];
+        updateCartUI();
+
+        function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('open'); }
+        
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('qzenith_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+            const countBadge = document.getElementById('cart-count');
+            
+            const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+            countBadge.innerText = totalCount;
+            countBadge.style.opacity = totalCount > 0 ? 1 : 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<div class="text-center text-gray-600 mt-10 font-mono text-xs">SYSTEM EMPTY</div>';
+                totalEl.innerText = '$ 0.00';
+                return;
+            }
+
+            let html = '';
+            let totalPrice = 0;
+            cart.forEach((item, index) => {
+                totalPrice += item.price * item.quantity;
+                html += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="img">
+                        <div class="flex-grow">
+                            <div class="flex justify-between"><h4 class="text-white text-xs font-bold">${item.name}</h4><button onclick="removeFromCart(${index})" class="text-gray-500 hover:text-red-500 text-xs"><i class="fa-solid fa-trash"></i></button></div>
+                            <div class="text-gray-500 text-[10px] font-mono mt-1">SIZE: ${item.size} | QTY: ${item.quantity}</div>
+                            <div class="text-white font-mono text-sm mt-2">$ ${item.price.toFixed(2)}</div>
+                        </div>
+                    </div>`;
+            });
+            container.innerHTML = html;
+            totalEl.innerText = '$ ' + totalPrice.toFixed(2);
+        }
     </script>
 </body>
 </html>
