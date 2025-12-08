@@ -58,12 +58,14 @@
             <!-- VISUALIZER -->
             <div class="lg:col-span-7 flex flex-col gap-4">
                 <div class="main-image-frame h-[50vh] md:h-[70vh] w-full bg-[#0f0f0f] relative group">
-                    <img id="main-img" src="https://images.unsplash.com/photo-1551488852-080175d2753a?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Product Main">
+                    <img id="main-img" src="https://imgur.com/SlZM81P.jpg" class="w-full h-full object-cover" alt="Product Main">
                     <div class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-500 bg-black/50 px-2 py-1">FIG 01. FRONT ELEVATION</div>
                 </div>
+                <!-- Only one image per product for now, duplicated for thumbnail UI structure -->
                 <div class="flex gap-4 overflow-x-auto pb-2">
-                    <button class="thumb-btn active w-20 h-20 bg-[#0f0f0f]" onclick="switchImage(this, 'https://images.unsplash.com/photo-1551488852-080175d2753a?q=80&w=1000&auto=format&fit=crop')"><img src="https://images.unsplash.com/photo-1551488852-080175d2753a?q=80&w=200" class="w-full h-full object-cover opacity-80" alt="View 1"></button>
-                    <button class="thumb-btn w-20 h-20 bg-[#0f0f0f]" onclick="switchImage(this, 'https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?q=80&w=1000&auto=format&fit=crop')"><img src="https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?q=80&w=200" class="w-full h-full object-cover opacity-80" alt="View 2"></button>
+                    <button class="thumb-btn active w-20 h-20 bg-[#0f0f0f]" onclick="switchImage(this, 'https://imgur.com/SlZM81P.jpg')"><img src="https://imgur.com/SlZM81P.jpg" class="w-full h-full object-cover opacity-80" alt="View 1"></button>
+                    <!-- Simulated Detail view for UI feel -->
+                    <button class="thumb-btn w-20 h-20 bg-[#0f0f0f]" onclick="switchImage(this, 'https://imgur.com/SlZM81P.jpg')"><img src="https://imgur.com/SlZM81P.jpg" class="w-full h-full object-cover opacity-80 scale-150" alt="View Detail"></button>
                 </div>
             </div>
 
@@ -71,11 +73,11 @@
             <div class="lg:col-span-5 flex flex-col h-full relative">
                 <div class="sticky top-32">
                     <div class="mb-8 border-b border-[#1c1c1c] pb-6">
-                        <div class="flex justify-between items-start mb-2"><h2 class="text-xs font-mono text-gray-500 tracking-widest">SERIES: APEX-01</h2><span class="inline-block px-2 py-1 border border-red-700 text-red-700 text-[10px] font-bold">IN STOCK</span></div>
-                        <h1 class="text-3xl md:text-4xl brand-font text-white mb-4">CARBON SHELL PARKA</h1>
-                        <div class="text-2xl font-mono text-white">$ 850.00 USD</div>
+                        <div class="flex justify-between items-start mb-2"><h2 class="text-xs font-mono text-gray-500 tracking-widest">SERIES: FLEECE SPEC</h2><span class="inline-block px-2 py-1 border border-red-700 text-red-700 text-[10px] font-bold">IN STOCK</span></div>
+                        <h1 class="text-3xl md:text-4xl brand-font text-white mb-4">DESERT MODE HOODIE</h1>
+                        <div class="text-2xl font-mono text-white">$ 950.00 USD</div>
                     </div>
-                    <div class="mb-8"><h3 class="text-xs font-bold text-gray-400 mb-2 uppercase">Engineering Notes</h3><p class="text-sm text-gray-500 leading-relaxed">Construida con polímeros de grado balístico. Esta parka ofrece resistencia al viento con un coeficiente de arrastre de 0.28. Las costuras están selladas térmicamente.</p></div>
+                    <div class="mb-8"><h3 class="text-xs font-bold text-gray-400 mb-2 uppercase">Engineering Notes</h3><p class="text-sm text-gray-500 leading-relaxed">Tejido fleece con calor y comodidad, perfecto para el layering. ENDLESS FUN, NO DLC REQUIRED.</p></div>
                     <div class="mb-8">
                         <h3 class="text-xs font-bold text-gray-400 mb-4 uppercase">Chassis Size</h3>
                         <div class="flex gap-3 size-selector">
@@ -118,7 +120,8 @@
         }
 
         // CART LOGIC
-        const currentProduct = { id: 'apex-01', name: 'CARBON SHELL PARKA', price: 850.00, image: 'https://images.unsplash.com/photo-1551488852-080175d2753a?q=80&w=200' };
+        // Updated to real product default
+        const currentProduct = { id: 'desert-mode', name: 'DESERT MODE HOODIE', price: 950.00, image: 'https://imgur.com/SlZM81P.jpg' };
         let cart = JSON.parse(localStorage.getItem('qzenith_cart')) || [];
         updateCartUI();
 

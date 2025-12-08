@@ -100,16 +100,9 @@
             <div class="mb-8">
                 <h3 class="text-white text-sm font-bold mb-4 uppercase">Chassis Type</h3>
                 <span class="filter-option active" data-filter="all">ALL SYSTEMS</span>
-                <span class="filter-option" data-filter="outerwear">OUTERWEAR (Jackets)</span>
-                <span class="filter-option" data-filter="mid-layer">MID-LAYER (Hoodies)</span>
-                <span class="filter-option" data-filter="base-layer">BASE-LAYER (T-Shirts)</span>
-                <span class="filter-option" data-filter="accessories">ACCESSORIES</span>
-            </div>
-            <div class="mb-8">
-                <h3 class="text-white text-sm font-bold mb-4 uppercase">Material Spec</h3>
-                <span class="filter-option">GORE-TEX PRO</span>
-                <span class="filter-option">CARBON WEAVE</span>
-                <span class="filter-option">TECH COTTON</span>
+                <span class="filter-option" data-filter="outerwear">OUTERWEAR (Hoodies/Crew)</span>
+                <span class="filter-option" data-filter="mid-layer">MID-LAYER (Long Sleeve)</span>
+                <span class="filter-option" data-filter="base-layer">BASE-LAYER (Tees)</span>
             </div>
         </aside>
 
@@ -120,7 +113,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 md:mb-8 gap-4">
                 <div>
                     <h1 class="text-2xl brand-font text-white">FULL INVENTORY <span class="text-red-700">.01</span></h1>
-                    <div class="text-xs font-mono text-gray-500 mt-1">SHOWING <span id="visible-count">4</span> UNITS</div>
+                    <div class="text-xs font-mono text-gray-500 mt-1">SHOWING <span id="visible-count">10</span> UNITS</div>
                 </div>
 
                 <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
@@ -149,13 +142,6 @@
                         <span class="filter-option mb-2" data-filter="outerwear">OUTERWEAR</span>
                         <span class="filter-option mb-2" data-filter="mid-layer">MID-LAYER</span>
                         <span class="filter-option mb-2" data-filter="base-layer">BASE-LAYER</span>
-                        <span class="filter-option" data-filter="accessories">ACCESSORIES</span>
-                    </div>
-                    <div>
-                        <h3 class="text-white text-xs font-bold mb-4 uppercase text-red-700">Material Spec</h3>
-                        <span class="filter-option mb-2">GORE-TEX PRO</span>
-                        <span class="filter-option mb-2">CARBON WEAVE</span>
-                        <span class="filter-option">TECH COTTON</span>
                     </div>
                 </div>
                 
@@ -165,66 +151,162 @@
             <!-- Products Container -->
             <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
-                <!-- Item 1 -->
-                <a href="product-template.html" class="catalog-card group" data-category="outerwear" data-name="CARBON SHELL PARKA">
+                <!-- 1. DESERT MODE -->
+                <a href="product-template.html" class="catalog-card group" data-category="outerwear" data-name="DESERT MODE HOODIE">
                     <div class="catalog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1551488852-080175d2753a?q=80&w=1000&auto=format&fit=crop" alt="Item">
+                        <img src="https://imgur.com/SlZM81P.jpg" alt="Item">
                         <div class="add-overlay">
-                            <span class="text-sm font-mono">$850.00</span>
+                            <span class="text-sm font-mono">$950.00</span>
                             <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <div><h4 class="text-white text-sm font-bold truncate">CARBON SHELL PARKA</h4><p class="text-xs text-gray-500 font-mono mt-1">APEX-01 SERIES</p></div>
+                            <div><h4 class="text-white text-sm font-bold truncate">DESERT MODE HOODIE</h4><p class="text-xs text-gray-500 font-mono mt-1">FLEECE SPEC</p></div>
                         </div>
                     </div>
                 </a>
 
-                <!-- Item 2 -->
-                <a href="product-template.html" class="catalog-card group" data-category="mid-layer" data-name="MONO-POSTO HOODIE">
+                <!-- 2. DETROIT WHITE BOY -->
+                <a href="product-template.html" class="catalog-card group" data-category="outerwear" data-name="DETROIT WHITE BOY">
                     <div class="catalog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?q=80&w=1000&auto=format&fit=crop" alt="Item">
+                        <img src="https://imgur.com/vb39ncS.jpg" alt="Item">
                         <div class="add-overlay">
-                            <span class="text-sm font-mono">$320.00</span>
+                            <span class="text-sm font-mono">$950.00</span>
                             <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <div><h4 class="text-white text-sm font-bold truncate">MONO-POSTO HOODIE</h4><p class="text-xs text-gray-500 font-mono mt-1">VELOCITY SERIES</p></div>
+                            <div><h4 class="text-white text-sm font-bold truncate">DETROIT WHITE BOY</h4><p class="text-xs text-gray-500 font-mono mt-1">FLEECE SPEC</p></div>
                         </div>
                     </div>
                 </a>
 
-                <!-- Item 3 -->
-                <a href="product-template.html" class="catalog-card group" data-category="base-layer" data-name="TECH-JERSEY BLACK">
+                <!-- 3. SANT AGATA LS -->
+                <a href="product-template.html" class="catalog-card group" data-category="mid-layer" data-name="SANT AGATA LS">
                     <div class="catalog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1000&auto=format&fit=crop" alt="Item">
+                        <img src="https://imgur.com/zkn9Ozk.jpg" alt="Item">
                         <div class="add-overlay">
-                            <span class="text-sm font-mono">$180.00</span>
+                            <span class="text-sm font-mono">$680.00</span>
                             <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <div><h4 class="text-white text-sm font-bold truncate">TECH-JERSEY BLACK</h4><p class="text-xs text-gray-500 font-mono mt-1">DRIFT SERIES</p></div>
+                            <div><h4 class="text-white text-sm font-bold truncate">SANT AGATA LS</h4><p class="text-xs text-gray-500 font-mono mt-1">LONG SLEEVE CHASSIS</p></div>
                         </div>
                     </div>
                 </a>
 
-                <!-- Item 4 -->
-                <a href="product-template.html" class="catalog-card group" data-category="accessories" data-name="AERO CAP V2">
+                 <!-- 4. LAND MISSILE TEE -->
+                 <a href="product-template.html" class="catalog-card group" data-category="base-layer" data-name="LAND MISSILE TEE">
                     <div class="catalog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1000&auto=format&fit=crop" alt="Item">
+                        <img src="https://imgur.com/seHkRSK.jpg" alt="Item">
                         <div class="add-overlay">
-                            <span class="text-sm font-mono">$120.00</span>
+                            <span class="text-sm font-mono">$550.00</span>
                             <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <div><h4 class="text-white text-sm font-bold truncate">AERO CAP V2</h4><p class="text-xs text-gray-500 font-mono mt-1">ACCESSORIES</p></div>
+                            <div><h4 class="text-white text-sm font-bold truncate">LAND MISSILE TEE</h4><p class="text-xs text-gray-500 font-mono mt-1">AERO TEE</p></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 5. DESERT BLOOM TEE -->
+                <a href="product-template.html" class="catalog-card group" data-category="base-layer" data-name="DESERT BLOOM TEE">
+                    <div class="catalog-img-wrap">
+                        <img src="https://imgur.com/IC779LP.jpg" alt="Item">
+                        <div class="add-overlay">
+                            <span class="text-sm font-mono">$550.00</span>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div><h4 class="text-white text-sm font-bold truncate">DESERT BLOOM TEE</h4><p class="text-xs text-gray-500 font-mono mt-1">OVERSIZE FIT</p></div>
+                        </div>
+                    </div>
+                </a>
+
+                 <!-- 6. HZ FREQUENCY TEE -->
+                 <a href="product-template.html" class="catalog-card group" data-category="base-layer" data-name="HZ FREQUENCY TEE">
+                    <div class="catalog-img-wrap">
+                        <img src="https://imgur.com/GLkSgtC.jpg" alt="Item">
+                        <div class="add-overlay">
+                            <span class="text-sm font-mono">$550.00</span>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div><h4 class="text-white text-sm font-bold truncate">HZ FREQUENCY TEE</h4><p class="text-xs text-gray-500 font-mono mt-1">AERO TEE</p></div>
+                        </div>
+                    </div>
+                </a>
+
+                 <!-- 7. RAGER CREW NECK -->
+                 <a href="product-template.html" class="catalog-card group" data-category="outerwear" data-name="RAGER CREW NECK">
+                    <div class="catalog-img-wrap">
+                        <img src="https://imgur.com/40MdSUp.jpg" alt="Item">
+                        <div class="add-overlay">
+                            <span class="text-sm font-mono">$890.00</span>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div><h4 class="text-white text-sm font-bold truncate">RAGER CREW NECK</h4><p class="text-xs text-gray-500 font-mono mt-1">HEAVY CREW</p></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 8. WHITE NOISE RACER -->
+                <a href="product-template.html" class="catalog-card group" data-category="base-layer" data-name="WHITE NOISE RACER">
+                    <div class="catalog-img-wrap">
+                        <img src="https://imgur.com/X2LaEps.jpg" alt="Item">
+                        <div class="add-overlay">
+                            <span class="text-sm font-mono">$590.00</span>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div><h4 class="text-white text-sm font-bold truncate">WHITE NOISE RACER</h4><p class="text-xs text-gray-500 font-mono mt-1">HD PRINT</p></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 9. THE GLITCH RAGER LS -->
+                <a href="product-template.html" class="catalog-card group" data-category="mid-layer" data-name="THE GLITCH RAGER LS">
+                    <div class="catalog-img-wrap">
+                        <img src="https://imgur.com/umeJ81O.jpg" alt="Item">
+                        <div class="add-overlay">
+                            <span class="text-sm font-mono">$680.00</span>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div><h4 class="text-white text-sm font-bold truncate">GLITCH RAGER LS</h4><p class="text-xs text-gray-500 font-mono mt-1">TECH LS</p></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 10. THE ULTIMATE ACCESS LS -->
+                <a href="product-template.html" class="catalog-card group" data-category="mid-layer" data-name="THE ULTIMATE ACCESS LS">
+                    <div class="catalog-img-wrap">
+                        <img src="https://imgur.com/n1KYPWz.jpg" alt="Item">
+                        <div class="add-overlay">
+                            <span class="text-sm font-mono">$680.00</span>
+                            <div class="text-xs font-bold text-white hover:text-red-500">CONFIGURE <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div><h4 class="text-white text-sm font-bold truncate">ULTIMATE ACCESS LS</h4><p class="text-xs text-gray-500 font-mono mt-1">TECH LS</p></div>
                         </div>
                     </div>
                 </a>
@@ -291,21 +373,10 @@
         const filters = document.querySelectorAll('.filter-option');
         filters.forEach(filter => {
             filter.addEventListener('click', function() {
-                // Highlight active (updates visually in both panels since they share classes)
-                // Note: We need to update all instances of this filter (desktop & mobile)
-                // Simplified: Remove active from all, then add to clicked.
-                
-                // Better approach for dual menus:
-                // Remove 'active' from ALL filter options in DOM
                 document.querySelectorAll('.filter-option').forEach(el => el.classList.remove('active'));
                 
-                // Add 'active' to the clicked one AND any matching text/data-filter
-                // For simplicity in this prototype, just highlighting the clicked one and its siblings in the same container
-                this.parentElement.querySelectorAll('.filter-option').forEach(el => el.classList.remove('active'));
+                // Add 'active' to the clicked one AND any matching text/data-filter (simplified here)
                 this.classList.add('active');
-                
-                // If clicked in mobile panel, we might want to close it? 
-                // Let's keep it open so they can select more or close manually.
                 
                 // Set Category
                 if(this.dataset.filter) {
