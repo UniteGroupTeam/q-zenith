@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Q-ZENITH | Spec Sheet</title>
-    <!-- Tailwind CSS (Estructura base) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fuentes (Tipografía) -->
+    <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* =========================================
-           ESTILOS INTEGRADOS (ENGINEERING UI)
+           ESTILOS INTEGRADOS (MONOLITO v2.1)
            ========================================= */
         
         :root {
@@ -41,7 +41,7 @@
             letter-spacing: 0.1em;
         }
 
-        /* --- VISUALIZADOR DE PRODUCTO --- */
+        /* --- VISUALIZADOR --- */
         .main-image-frame {
             position: relative;
             overflow: hidden;
@@ -50,143 +50,89 @@
             height: 70vh;
             transition: border-color 0.3s ease;
         }
-        
-        .main-image-frame:hover {
-            border-color: #333;
-        }
-
+        .main-image-frame:hover { border-color: #333; }
         .main-image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s;
         }
 
-        /* --- BOTONES DE MINIATURAS --- */
+        /* --- THUMBNAILS --- */
         .thumb-btn {
-            width: 5rem;
-            height: 5rem;
+            width: 5rem; height: 5rem;
             border: 1px solid var(--border-grey);
-            opacity: 0.6;
-            transition: all 0.2s;
-            cursor: pointer;
-            padding: 0;
+            opacity: 0.6; transition: all 0.2s; cursor: pointer; padding: 0;
             background: var(--panel-grey);
         }
-        .thumb-btn img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .thumb-btn img { width: 100%; height: 100%; object-fit: cover; }
         .thumb-btn.active, .thumb-btn:hover {
-            border-color: var(--ferrari-red);
-            opacity: 1;
-            transform: translateY(-2px);
+            border-color: var(--ferrari-red); opacity: 1; transform: translateY(-2px);
         }
 
-        /* --- SELECTOR DE TALLAS --- */
+        /* --- SELECTOR --- */
         .size-selector { display: flex; gap: 10px; margin-top: 10px; }
         .size-selector input { display: none; }
         .size-selector label {
-            border: 1px solid var(--border-grey);
-            color: var(--text-muted);
-            padding: 12px 24px;
-            cursor: pointer;
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            transition: all 0.3s;
-            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-grey); color: var(--text-muted);
+            padding: 12px 24px; cursor: pointer;
+            font-family: 'Syncopate', sans-serif; font-size: 0.7rem; font-weight: 700;
+            transition: all 0.3s; background: rgba(255,255,255,0.02);
         }
         .size-selector input:checked + label {
-            background: var(--pure-white);
-            color: var(--carbon-black);
-            border-color: var(--pure-white);
-            box-shadow: 0 0 15px rgba(255,255,255,0.2);
+            background: var(--pure-white); color: var(--carbon-black);
+            border-color: var(--pure-white); box-shadow: 0 0 15px rgba(255,255,255,0.2);
         }
-        .size-selector label:hover {
-            border-color: #666;
-            color: #fff;
-        }
+        .size-selector label:hover { border-color: #666; color: #fff; }
 
-        /* --- BOTÓN DE AÑADIR (PAYLOAD) --- */
+        /* --- BOTÓN ADD --- */
         .btn-add {
-            background: var(--pure-white);
-            color: var(--carbon-black);
-            border: none;
-            padding: 18px 0;
-            font-family: 'Syncopate', sans-serif;
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            text-align: center;
-            display: block;
+            background: var(--pure-white); color: var(--carbon-black);
+            border: none; padding: 18px 0;
+            font-family: 'Syncopate', sans-serif; font-weight: 700;
+            letter-spacing: 2px; font-size: 0.9rem; cursor: pointer;
+            transition: all 0.3s; width: 100%; text-align: center; display: block;
             margin-top: 20px;
-            position: relative;
-            overflow: hidden;
         }
-        
         .btn-add:hover {
-            background: #e6e6e6;
-            transform: scale(1.01);
+            background: #e6e6e6; transform: scale(1.01);
             box-shadow: 0 0 20px rgba(255,255,255,0.1);
         }
-        
-        .btn-add:active {
-            transform: scale(0.98);
-        }
 
-        /* --- NAV SUPERIOR --- */
-        nav {
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-grey);
-        }
+        /* --- NAV & HEADER --- */
+        nav { background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-grey); }
 
-        /* --- CART SIDEBAR (Panel Lateral) --- */
+        /* --- CART SIDEBAR --- */
         #cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -450px;
-            width: 100%;
-            max-width: 450px;
-            height: 100vh;
-            background: #0a0a0a;
-            border-left: 1px solid var(--border-grey);
-            z-index: 100;
+            position: fixed; top: 0; right: -450px; width: 100%; max-width: 450px; height: 100vh;
+            background: #0a0a0a; border-left: 1px solid var(--border-grey); z-index: 100;
             transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-            display: flex;
-            flex-direction: column;
-            padding: 25px;
+            display: flex; flex-direction: column; padding: 25px;
             box-shadow: -10px 0 30px rgba(0,0,0,0.8);
         }
         #cart-sidebar.open { right: 0; }
 
         .cart-item {
-            border-bottom: 1px solid var(--border-grey);
-            padding: 15px 0;
-            display: flex;
-            gap: 15px;
-            animation: fadeIn 0.3s ease;
+            border-bottom: 1px solid var(--border-grey); padding: 15px 0;
+            display: flex; gap: 15px; animation: fadeIn 0.3s ease;
         }
-        .cart-item img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border: 1px solid #333;
-        }
+        .cart-item img { width: 70px; height: 70px; object-fit: cover; border: 1px solid #333; }
 
-        /* --- UTILITIES --- */
+        /* --- RELATED PRODUCTS CAROUSEL --- */
+        .related-card {
+            min-width: 280px;
+            border: 1px solid var(--border-grey);
+            background: var(--panel-grey);
+            transition: transform 0.3s ease, border-color 0.3s;
+        }
+        .related-card:hover { transform: translateY(-5px); border-color: #444; }
+        .related-img { height: 320px; width: 100%; object-fit: cover; }
+
+        /* --- UTILS --- */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-[#050505] min-h-screen">
+<body class="bg-[#050505] min-h-screen flex flex-col">
 
     <!-- NAV -->
     <nav class="fixed w-full z-50 top-0 left-0 p-6 flex justify-between items-center">
@@ -203,7 +149,7 @@
     </nav>
 
     <!-- PRODUCT AREA -->
-    <main class="pt-32 pb-20 px-6 container mx-auto">
+    <main class="pt-32 pb-10 px-6 container mx-auto flex-grow">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             <!-- IMAGE SECTION -->
@@ -216,9 +162,7 @@
                     </div>
                 </div>
                 <!-- Thumbnails Container -->
-                <div class="flex gap-4 overflow-x-auto pb-2 mt-2 hide-scrollbar" id="thumbnails-container">
-                    <!-- JS will inject thumbnails here -->
-                </div>
+                <div class="flex gap-4 overflow-x-auto pb-2 mt-2 hide-scrollbar" id="thumbnails-container"></div>
             </div>
 
             <!-- INFO / TELEMETRY SECTION -->
@@ -230,12 +174,32 @@
                             <span class="border border-red-700 text-red-600 text-[10px] font-bold px-2 py-1 tracking-wider bg-red-900/10">IN STOCK</span>
                         </div>
                         <h1 id="product-name" class="text-3xl md:text-5xl text-white brand-font mb-4 leading-tight">SYSTEM LOADING</h1>
-                        <div id="product-price" class="text-3xl text-white font-mono tracking-tighter">$ 0.00</div>
+                        <div id="product-price" class="text-3xl text-white font-mono tracking-tighter">$ 0.00 MXN</div>
                     </div>
 
                     <div class="mb-8">
-                        <h3 class="text-xs font-bold text-gray-500 mb-3 uppercase tracking-widest brand-font">Engineering Notes</h3>
-                        <p id="product-desc" class="text-sm text-gray-400 leading-relaxed font-light">Retrieving system specifications from server...</p>
+                        <h3 class="text-xs font-bold text-gray-500 mb-3 uppercase tracking-widest brand-font">Description</h3>
+                        <p id="product-desc" class="text-sm text-gray-400 leading-relaxed font-light mb-4">Retrieving system specifications...</p>
+                        
+                        <!-- Extra Info Added -->
+                        <div class="grid grid-cols-2 gap-4 mt-6 border-t border-[#1c1c1c] pt-4">
+                            <div>
+                                <span class="block text-[10px] text-gray-600 font-mono uppercase">Material</span>
+                                <span class="text-xs text-gray-300">Heavyweight Cotton / Tech Blend</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-600 font-mono uppercase">Fit</span>
+                                <span class="text-xs text-gray-300">Structured / Relaxed Aero</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-600 font-mono uppercase">Weight</span>
+                                <span class="text-xs text-gray-300">380 GSM (Approx)</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-600 font-mono uppercase">Origin</span>
+                                <span class="text-xs text-gray-300">Designed in Lab</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="mb-10">
@@ -261,6 +225,16 @@
         </div>
     </main>
 
+    <!-- NEW SECTION: RELATED PRODUCTS -->
+    <section class="border-t border-[#1c1c1c] bg-[#080808] py-16">
+        <div class="container mx-auto px-6">
+            <h3 class="text-xl text-white brand-font mb-8 pl-4 border-l-4 border-red-700">RELATED SYSTEM DATA</h3>
+            <div id="related-container" class="flex overflow-x-auto gap-6 pb-4 hide-scrollbar">
+                <!-- JS will inject related items here -->
+            </div>
+        </div>
+    </section>
+
     <!-- CART SIDEBAR -->
     <div id="cart-sidebar">
         <div class="flex justify-between items-center mb-8 pb-4 border-b border-[#333]">
@@ -272,7 +246,7 @@
             SYSTEM EMPTY
         </div>
         <div class="border-t border-[#333] pt-6 mt-4">
-            <div class="flex justify-between text-white font-mono mb-4 text-sm"><span>TOTAL ESTIMATED</span><span id="cart-total">$ 0.00</span></div>
+            <div class="flex justify-between text-white font-mono mb-4 text-sm"><span>TOTAL ESTIMATED</span><span id="cart-total">$ 0.00 MXN</span></div>
             <button class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-4 transition-colors brand-font tracking-widest text-xs">INITIATE CHECKOUT</button>
         </div>
     </div>
@@ -302,35 +276,29 @@
             const params = new URLSearchParams(window.location.search);
             currentId = params.get('id');
 
-            // Fallback: Si no hay ID o el ID no existe en la DB, cargar Desert Mode por defecto
             if (!currentId || !db[currentId]) {
                 console.warn('ID not found or invalid, defaulting to desert-mode');
                 currentId = 'desert-mode';
             }
 
             renderProduct(currentId);
-            updateCartUI(); // Cargar carrito guardado
+            renderRelated(currentId); // New Function
+            updateCartUI(); 
         });
 
         function renderProduct(id) {
             const p = db[id];
             
-            // Actualizar Textos
             document.getElementById('product-name').innerText = p.name;
-            document.getElementById('product-price').innerText = `$ ${p.price.toFixed(2)} USD`;
+            document.getElementById('product-price').innerText = `$ ${p.price.toFixed(2)} MXN`;
             document.getElementById('product-desc').innerText = p.desc;
             document.getElementById('product-cat').innerText = `SERIES: ${p.cat}`;
             document.title = `Q-ZENITH | ${p.name}`;
             
-            // Actualizar Imagen Principal
             const mainImg = document.getElementById('main-img');
             mainImg.style.opacity = 0;
-            setTimeout(() => {
-                mainImg.src = p.img;
-                mainImg.style.opacity = 1;
-            }, 200);
+            setTimeout(() => { mainImg.src = p.img; mainImg.style.opacity = 1; }, 200);
 
-            // Generar Miniaturas (Simuladas para el efecto visual)
             const thumbContainer = document.getElementById('thumbnails-container');
             thumbContainer.innerHTML = `
                 <button class="thumb-btn active" onclick="switchImage(this, '${p.img}')">
@@ -342,23 +310,41 @@
             `;
         }
 
-        // Lógica de cambio de imagen
+        // --- NEW: RENDER RELATED PRODUCTS ---
+        function renderRelated(excludeId) {
+            const container = document.getElementById('related-container');
+            const keys = Object.keys(db).filter(k => k !== excludeId);
+            
+            // Pick 4 random items
+            const shuffled = keys.sort(() => 0.5 - Math.random()).slice(0, 4);
+            
+            let html = '';
+            shuffled.forEach(key => {
+                const item = db[key];
+                html += `
+                    <a href="product-template.html?id=${key}" class="related-card block">
+                        <img src="${item.img}" class="related-img">
+                        <div class="p-4">
+                            <h4 class="text-white text-xs font-bold truncate">${item.name}</h4>
+                            <p class="text-gray-500 text-[10px] font-mono mt-1">$ ${item.price.toFixed(2)} MXN</p>
+                        </div>
+                    </a>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
         function switchImage(btn, src) {
             const mainImg = document.getElementById('main-img');
             mainImg.style.opacity = 0;
             setTimeout(() => { mainImg.src = src; mainImg.style.opacity = 1; }, 200);
-            
             document.querySelectorAll('.thumb-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         }
 
-        /* --- SISTEMA DE CARRITO (LOCALSTORAGE) --- */
+        /* --- CART LOGIC --- */
         let cart = [];
-        try {
-            cart = JSON.parse(localStorage.getItem('qzenith_cart')) || [];
-        } catch (e) {
-            localStorage.removeItem('qzenith_cart'); // Reset si hay error
-        }
+        try { cart = JSON.parse(localStorage.getItem('qzenith_cart')) || []; } catch (e) { localStorage.removeItem('qzenith_cart'); }
 
         const countBadge = document.getElementById('cart-count');
         const cartItems = document.getElementById('cart-items');
@@ -369,61 +355,30 @@
         function addToCart() {
             const p = db[currentId];
             const sizeInput = document.querySelector('input[name="size"]:checked');
-            
-            if(!sizeInput) {
-                alert("PLEASE SELECT A CHASSIS SIZE.");
-                return;
-            }
+            if(!sizeInput) { alert("PLEASE SELECT A CHASSIS SIZE."); return; }
             const size = sizeInput.value;
             
-            // Buscar si ya existe para sumar cantidad
             const existing = cart.find(item => item.id === currentId && item.size === size);
+            if (existing) { existing.quantity++; } 
+            else { cart.push({ id: currentId, name: p.name, price: p.price, image: p.img, size: size, quantity: 1 }); }
             
-            if (existing) {
-                existing.quantity++;
-            } else {
-                cart.push({
-                    id: currentId,
-                    name: p.name,
-                    price: p.price,
-                    image: p.img,
-                    size: size,
-                    quantity: 1
-                });
-            }
-            
-            saveCart();
-            toggleCart(); // Abrir carrito para confirmar
+            saveCart(); toggleCart();
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            saveCart();
-        }
-
-        function saveCart() {
-            localStorage.setItem('qzenith_cart', JSON.stringify(cart));
-            updateCartUI();
-        }
+        function removeFromCart(index) { cart.splice(index, 1); saveCart(); }
+        function saveCart() { localStorage.setItem('qzenith_cart', JSON.stringify(cart)); updateCartUI(); }
 
         function updateCartUI() {
-            // Actualizar Badge
             const count = cart.reduce((acc, item) => acc + item.quantity, 0);
-            if(countBadge) {
-                countBadge.innerText = count;
-                countBadge.style.opacity = count > 0 ? 1 : 0;
-            }
+            if(countBadge) { countBadge.innerText = count; countBadge.style.opacity = count > 0 ? 1 : 0; }
             
-            // Si está vacío
             if(cart.length === 0) {
                 if(cartItems) cartItems.innerHTML = '<i class="fa-solid fa-box-open text-4xl mb-4 opacity-30"></i>SYSTEM EMPTY';
-                if(cartTotal) cartTotal.innerText = "$ 0.00";
+                if(cartTotal) cartTotal.innerText = "$ 0.00 MXN";
                 return;
             }
 
-            // Renderizar items
-            let html = '';
-            let total = 0;
+            let html = ''; let total = 0;
             cart.forEach((item, index) => {
                 total += item.price * item.quantity;
                 html += `
@@ -431,17 +386,15 @@
                     <img src="${item.image}">
                     <div class="text-left w-full">
                         <div class="flex justify-between text-white font-bold text-xs tracking-wider">
-                            <span>${item.name}</span> 
-                            <button onclick="removeFromCart(${index})" class="text-gray-600 hover:text-red-500 transition-colors"><i class="fa-solid fa-trash"></i></button>
+                            <span>${item.name}</span> <button onclick="removeFromCart(${index})" class="text-gray-600 hover:text-red-500 transition-colors"><i class="fa-solid fa-trash"></i></button>
                         </div>
                         <div class="text-[10px] text-gray-500 mt-1 font-mono">SIZE: ${item.size} | QTY: ${item.quantity}</div>
-                        <div class="text-xs text-white mt-2 font-mono">$ ${item.price.toFixed(2)}</div>
+                        <div class="text-xs text-white mt-2 font-mono">$ ${item.price.toFixed(2)} MXN</div>
                     </div>
                 </div>`;
             });
-            
             if(cartItems) cartItems.innerHTML = html;
-            if(cartTotal) cartTotal.innerText = "$ " + total.toFixed(2);
+            if(cartTotal) cartTotal.innerText = "$ " + total.toFixed(2) + " MXN";
         }
     </script>
 </body>
